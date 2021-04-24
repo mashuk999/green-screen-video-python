@@ -42,8 +42,10 @@ def makeAudio(name,content):
                 # writing one chunk at a time to pdf file
                 if chunk:
                     pdf.write(chunk)
+        return True
     except Exception as e:
         print(e)
+        return False
 
 def downloadImages(title):
     try:
