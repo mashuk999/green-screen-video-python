@@ -38,7 +38,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Successful
         id: hello
-        uses: mashuk999/green-screen-video-python@master
+        uses: mashuk999/green-screen-video-python@main
 
       - uses: actions/upload-artifact@v2
         with:
