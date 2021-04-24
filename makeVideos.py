@@ -36,6 +36,7 @@ def makeAudio(name,content):
     try:
         os.chdir(os.path.join(settings.BASE_DIR, r"dataset/"+name))
         url = 'http://api.voicerss.org/?key=b5df2b73c2ec4a439778b006eccb7340&hl=hi-in&c=MP3&f=16khz_16bit_stereo&src=' + content
+        print(url)
         r=requests.get(url, stream = True)
         with open("audio.mp3","wb") as pdf:
             for chunk in r.iter_content(chunk_size=1024):
