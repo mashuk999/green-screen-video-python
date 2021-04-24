@@ -39,3 +39,8 @@ jobs:
       - name: Run script
         run: |
           python main.py
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: test.mp4
