@@ -7,6 +7,7 @@ import urllib.request
 from gtts import gTTS,tts
 import shutil
 from moviepy.editor import AudioFileClip, VideoFileClip,CompositeAudioClip, vfx.mask_color, CompositeVideoClip
+import moviepy.video.fx.all as vfx
 
 import settings
 
