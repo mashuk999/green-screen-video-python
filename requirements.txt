@@ -15,7 +15,7 @@ google-api-python-client==1.10.0
 google-auth==1.20.1
 google-auth-httplib2==0.0.4
 googleapis-common-protos==1.52.0
-gTTS @ git+https://github.com/mashuk999/gTTS.git@b6b442b9cfc6a6ddebc9e72cb15b8a0e0aaede4c
+gTTS==2.2.2
 gTTS-token==1.1.3
 gunicorn==20.0.4
 httplib2==0.18.1
