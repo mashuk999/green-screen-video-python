@@ -39,10 +39,11 @@ def makeAudio(name,content):
         r=requests.get(url, stream = True)
         with open("audio.mp3","wb") as pdf:
             for chunk in r.iter_content(chunk_size=1024):
-        
                 # writing one chunk at a time to pdf file
                 if chunk:
                     pdf.write(chunk)
+    except Exception as e:
+        print(e)
 
 def downloadImages(title):
     try:
