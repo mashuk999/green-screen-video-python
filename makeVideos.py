@@ -6,7 +6,7 @@ from django.conf import settings
 import urllib.request
 from gtts import gTTS,tts
 import shutil
-from moviepy.editor import AudioFileClip, VideoFileClip,CompositeAudioClip, vfx.mask_color, CompositeVideoClip
+from moviepy.editor import AudioFileClip, VideoFileClip,CompositeAudioClip, CompositeVideoClip
 import moviepy.video.fx.all as vfx
 
 import settings
