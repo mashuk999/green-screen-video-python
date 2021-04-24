@@ -4,7 +4,7 @@ clip = mp.VideoFileClip('./greenscreen.mp4')
 # Mountains background
 background = mp.ImageClip('https://www.worldatlas.com/r/w728-h425-c728x425/upload/66/14/d8/kangchenjunga.jpg')
 
-masked_clip = clip.fx(mp.vfx.mask_color, color=[109, 246, 16], thr=150, s=5)
+masked_clip = clip.fx(mp.vfx.mask_color, color=[109, 246, 16], thr=100, s=5)
 # You can remove this resize, it's just for test...
 masked_clip = masked_clip.resize(0.3).set_pos(('center', 'bottom'))
 
