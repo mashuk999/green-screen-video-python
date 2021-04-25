@@ -177,7 +177,7 @@ def addAudioToVideo(name):
         #Adding Anchor
         clip = concatenate_videoclips(maskedClipList)
         masked_clip = clip.fx(vfx.mask_color, color=[109, 246, 16], thr=80, s=5)
-        masked_clip = masked_clip.resize(256,256).set_pos(('center', 'bottom'))
+        masked_clip = masked_clip.resize(videoclip.size).set_pos(('center', 'bottom'))
         final_clip = CompositeVideoClip([ videoclip, masked_clip ])
         
         # videoclip = videoclip.fx(speedx, 1.3)
