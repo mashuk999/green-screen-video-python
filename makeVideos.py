@@ -1,8 +1,7 @@
 from downloader import *
 import os 
 import cv2 
-# from PIL import Image 
-import Image #Uncomment PIl wala if anything happens and rm this one
+from PIL import Image 
 from django.conf import settings
 import urllib.request
 from gtts import gTTS,tts
@@ -12,6 +11,7 @@ import moviepy.video.fx.all as vfx
 
 import settings
 import requests
+import time
 
 
 
@@ -64,6 +64,9 @@ def makeVideo(name,content):
         if os.path.isdir(os.path.join(settings.BASE_DIR, r"dataset/"+name)):
             shutil.rmtree(os.path.join(settings.BASE_DIR, r"dataset/"+name))
         downloadImages(name)
+        
+        #Waiting for few seconds
+        time.sleep(10)
         status = makeAudio(name,content)
         if not status:
             return 'GTTS ERR'
