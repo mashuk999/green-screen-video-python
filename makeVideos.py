@@ -19,7 +19,7 @@ def makeAudio(name,content):
     try:
         try:
             os.chdir(os.path.join(settings.BASE_DIR, r"dataset/"+name))
-            ttsG = gTTS(content)
+            ttsG = gTTS(content,lang='hi',tld='co.in')
             ttsG.save('audio.mp3')
         except tts.gTTSError as e:
             print(e)
@@ -168,7 +168,7 @@ def addAudioToVideo(name):
         
         # videoclip = videoclip.fx(speedx, 1.3)
         os.chdir(os.path.join(settings.BASE_DIR, ""))
-        videoclip.write_videofile("test"+".mp4")
+        final_clip.write_videofile("test"+".mp4")
     except Exception as e:
         print('addaudioto video m.v.')
         print(e)
