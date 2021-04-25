@@ -76,8 +76,8 @@ def makeVideo(name,content):
         os.chdir(os.path.join(settings.BASE_DIR, r"dataset/"+name)) 
         path = os.path.join(settings.BASE_DIR, r"dataset/"+name)
 
-        mean_height = 720
-        mean_width = 1280
+        mean_height = 460
+        mean_width = 720
 
         num_of_images = len(os.listdir('.')) 
 
@@ -179,7 +179,7 @@ def addAudioToVideo(name):
         masked_clip = clip.fx(vfx.mask_color, color=[109, 246, 16], thr=80, s=5)
         masked_clip = masked_clip.resize(videoclip.size).set_pos(('center', 'bottom'))
         final_clip = CompositeVideoClip([ videoclip, masked_clip ])
-        
+        final_clip = final_clip.resize((460,720))
         # videoclip = videoclip.fx(speedx, 1.3)
         os.chdir(os.path.join(settings.BASE_DIR, ""))
         final_clip.write_videofile("test"+".mp4")
