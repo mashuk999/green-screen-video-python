@@ -15,38 +15,38 @@ import requests
 
 
 
-# def makeAudio(name,content):
-#     try:
-#         try:
-#             os.chdir(os.path.join(settings.BASE_DIR, r"dataset/"+name))
-#             ttsG = gTTS(content, lang='hi')
-#             ttsG.save('audio.mp3')
-#         except tts.gTTSError as e:
-#             print(e)
-#             return False
-#         except Exception as e:
-#             print(e)
-#             return False
-#         return True
-#     except Exception as e: 
-#         print('m.v. makeaudio')
-#         print(e)
-
 def makeAudio(name,content):
     try:
-        os.chdir(os.path.join(settings.BASE_DIR, r"dataset/"+name))
-        url = 'http://api.voicerss.org/?key=b5df2b73c2ec4a439778b006eccb7340&hl=hi-in&c=MP3&f=16khz_16bit_stereo&src=' + content
-        print(url)
-        r=requests.get(url, stream = True)
-        with open("audio.mp3","wb") as pdf:
-            for chunk in r.iter_content(chunk_size=1024):
-                # writing one chunk at a time to pdf file
-                if chunk:
-                    pdf.write(chunk)
+        try:
+            os.chdir(os.path.join(settings.BASE_DIR, r"dataset/"+name))
+            ttsG = gTTS(content)
+            ttsG.save('audio.mp3')
+        except tts.gTTSError as e:
+            print(e)
+            return False
+        except Exception as e:
+            print(e)
+            return False
         return True
-    except Exception as e:
+    except Exception as e: 
+        print('m.v. makeaudio')
         print(e)
-        return False
+
+# def makeAudio(name,content):
+#     try:
+#         os.chdir(os.path.join(settings.BASE_DIR, r"dataset/"+name))
+#         url = 'http://api.voicerss.org/?key=b5df2b73c2ec4a439778b006eccb7340&hl=hi-in&c=MP3&f=16khz_16bit_stereo&src=' + content
+#         print(url)
+#         r=requests.get(url, stream = True)
+#         with open("audio.mp3","wb") as pdf:
+#             for chunk in r.iter_content(chunk_size=1024):
+#                 # writing one chunk at a time to pdf file
+#                 if chunk:
+#                     pdf.write(chunk)
+#         return True
+#     except Exception as e:
+#         print(e)
+#         return False
 
 def downloadImages(title):
     try:
