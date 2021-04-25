@@ -1,7 +1,8 @@
 from downloader import *
 import os 
 import cv2 
-from PIL import Image 
+# from PIL import Image 
+import Image #Uncomment PIl wala if anything happens and rm this one
 from django.conf import settings
 import urllib.request
 from gtts import gTTS,tts
