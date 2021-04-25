@@ -94,15 +94,20 @@ def makeVideo(name,content):
         for file in os.listdir('.'): 
             if file.endswith(".jpg") or file.endswith(".jpeg") or file.endswith("png"): 
                 # opening image using PIL Image 
-                im = Image.open(os.path.join(path, file)).convert('RGB')
+                try:
+                    im = Image.open(os.path.join(path, file)).convert('RGB')
 
-                # im.size includes the height and width of image 
-                width, height = im.size 
-                print(width, height) 
+                    # im.size includes the height and width of image 
+                    width, height = im.size 
+                    print(width, height) 
 
-                # resizing 
-                imResize = im.resize((mean_width, mean_height), Image.ANTIALIAS) 
-                imResize.save( file, 'JPEG', quality = 95) # setting quality 
+                    # resizing 
+                    imResize = im.resize((mean_width, mean_height), Image.ANTIALIAS) 
+                    imResize.save( file, 'JPEG', quality = 95) # setting quality 
+                except Exception as e:
+                    print(e)
+                    print('Deleting Corrupted File')
+                    os.remove(os.path.join(path, file))
 
         generate_video(name) 
 
