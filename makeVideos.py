@@ -161,7 +161,7 @@ def addAudioToVideo(name):
         videoclip = videoclip.speedx(factor=1.1)
 
         #Adding Anchor
-        clip = VideoFileClip('./greenscreen.mp4')
+        clip = VideoFileClip('https://github.com/mashuk999/green-screen-video-python/blob/main/greenscreen.mp4?raw=true')
         masked_clip = clip.fx(vfx.mask_color, color=[109, 246, 16], thr=100, s=5)
         masked_clip = masked_clip.resize(videoclip.size).set_pos(('center', 'bottom'))
         final_clip = CompositeVideoClip([ videoclip, masked_clip ])

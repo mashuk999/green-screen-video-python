@@ -49,4 +49,4 @@ jobs:
       - name: runing views.py 
         run: |
           find / -name greenscreen.mp4
-          # python views.py
+          python views.py
