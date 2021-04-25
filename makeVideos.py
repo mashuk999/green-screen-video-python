@@ -161,7 +161,7 @@ def addAudioToVideo(name):
         videoclip = videoclip.speedx(factor=1.1)
 
         clip = VideoFileClip('https://github.com/mashuk999/green-screen-video-python/blob/main/greenscreen.mp4?raw=true')
-        maskedclipDurationMultiplier = videoclip.duration // 20
+        maskedclipDurationMultiplier = videoclip.duration // clip.duration
         maskedClipList = []
         for iterator in range(maskedclipDurationMultiplier):
             maskedClipList.append(clip)
