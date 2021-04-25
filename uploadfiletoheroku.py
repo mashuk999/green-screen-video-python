@@ -17,7 +17,7 @@ def uploadvideotoheroku(filepath,YTtitle):
         print(filepath)
         filepath = str(filepath)
         # filepath = filepath.replace(' ','\ ')
-        filepath="final.mp4"
+        filepath="test.mp4"
         print(filepath)
         myurl = 'http://ytserver.eu-gb.cf.appdomain.cloud/news/videouploadwithcloudinary/'
         upload_data = cloudinary.uploader.upload_large(filepath)
