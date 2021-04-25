@@ -6,7 +6,7 @@ from django.conf import settings
 import urllib.request
 from gtts import gTTS,tts
 import shutil
-from moviepy.editor import AudioFileClip, VideoFileClip,CompositeAudioClip, CompositeVideoClip
+from moviepy.editor import AudioFileClip, VideoFileClip,CompositeAudioClip, CompositeVideoClip, concatenate_videoclips
 import moviepy.video.fx.all as vfx
 
 import settings
@@ -160,8 +160,13 @@ def addAudioToVideo(name):
         videoclip = videoclip.subclip(0, audiofile.duration)
         videoclip = videoclip.speedx(factor=1.1)
 
-        #Adding Anchor
         clip = VideoFileClip('https://github.com/mashuk999/green-screen-video-python/blob/main/greenscreen.mp4?raw=true')
+        maskedclipDurationMultiplier = videoclip.duration // 20
+        maskedClipList = []
+        for iterator in range(maskedclipDurationMultiplier):
+            maskedClipList.append(clip)
+        #Adding Anchor
+        clip = concatenate_videoclips(maskedClipList)
         masked_clip = clip.fx(vfx.mask_color, color=[109, 246, 16], thr=100, s=5)
         masked_clip = masked_clip.resize(videoclip.size).set_pos(('center', 'bottom'))
         final_clip = CompositeVideoClip([ videoclip, masked_clip ])
